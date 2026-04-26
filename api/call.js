@@ -1,6 +1,13 @@
 export default async function handler(req, res) {
   const rawPhone = req.body.to || "";
-  const digits = String(rawPhone).replace(/\D/g, "");
+  let digits = String(rawPhone).replace(/\D/g, "");
+  
+  // Remove leading zero if present
+  if (digits.startsWith("0")) {
+    digits = digits.substring(1);
+  }
+  
+  // Add 91 if not already there
   const cleanPhone = parseInt(digits.startsWith("91") ? digits : "91" + digits);
 
   const payload = {
