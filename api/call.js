@@ -6,8 +6,8 @@ export default async function handler(req, res) {
     user_id: "5003_33337829",
     secret: "ff60d978-7d3d-431f-96d0-1e4b6a24049a",
     to: cleanPhone,
-    webrtc: false,
-    followme: true
+    webrtc: true,
+    followme: false
   };
 
   const response = await fetch("https://rest.telecmi.com/v2/webrtc/click2call", {
